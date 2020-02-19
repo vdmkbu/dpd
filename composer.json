@@ -1,0 +1,16 @@
+{
+    "name": "vdmkbu/dpd",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Vadim Korostelev",
+            "email": "vdmkbu@ya.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vdmkbu\\Dpd\\": "src/"
+        }
+    },
+    "require": {}
+}

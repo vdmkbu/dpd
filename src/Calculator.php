@@ -53,7 +53,7 @@ class Calculator
         try {
             $ret = $client->getServiceCost2($arRequest);
 
-            return $ret;
+            return new Cost($ret);
 
         } catch (\Exception $e) {
             var_dump($e);
@@ -61,31 +61,6 @@ class Calculator
 
     }
 
-    public function getCostByCode($calc, $code)
-    {
-        foreach($calc->return as $calc_id => $calc_data) {
-            if($calc_data->serviceCode == $code) {
-                return $calc_data->cost;
-            }
-        }
-    }
 
-    public function getDaysByCode($calc, $code)
-    {
-        foreach($calc->return as $calc_id => $calc_data) {
-            if($calc_data->serviceCode == $code) {
-                return $calc_data->days;
-            }
-        }
-    }
-
-    public function getNameByCode($calc, $code)
-    {
-        foreach($calc->return as $calc_id => $calc_data) {
-            if($calc_data->serviceCode == $code) {
-                return $calc_data->serviceName;
-            }
-        }
-    }
 
 }

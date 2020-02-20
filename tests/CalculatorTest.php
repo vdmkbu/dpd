@@ -58,14 +58,5 @@ class CalculatorTest extends TestCase
 
         var_dump($calc_result);
 
-        $cost = $calculator->getCostByCode($calc_result, 'MAX');
-        $days = $calculator->getDaysByCode($calc_result, 'MAX');
-        $name = $calculator->getNameByCode($calc_result, 'MAX');
-
-        var_dump([
-            $cost,
-            $days,
-            $name
-        ]);
     }
 }

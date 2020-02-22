@@ -30,24 +30,25 @@ class CalculatorTest extends TestCase
 
         $weight = 3;
         $cost = 400;
-        $length = 5;
-        $width = 6;
-        $height = 7;
-        $Qty = 8;
+        $length = 50;
+        $width = 50;
+        $height = 10;
+        $Qty = 1;
 
         $shipment = new Shipment();
         $shipment->setSender($from_city_id);
         $shipment->setReceiver($to_city_id);
         $shipment->setSelfDelivery(false);
         $shipment->setPickup(true);
+        $shipment->setServiceCode("IND,PCL");
 
         $items = [
-            'weight'=>$weight,
-            'cost'=>$cost,
-            'length'=>$length,
-            'width'=>$width,
-            'height'=>$height,
-            'quantity'=>$Qty
+            'weight'=>$weight, // вес посылки, кг
+            'cost'=>$cost,     // стоимость
+            'length'=>$length, // длина посылки, см
+            'width'=>$width,   // ширина посылки, см
+            'height'=>$height, // высота посылки, см
+            'quantity'=>$Qty   // количество посылок
         ];
 
         $shipment->setItems($items);

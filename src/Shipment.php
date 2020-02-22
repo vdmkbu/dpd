@@ -9,6 +9,7 @@ class Shipment
     protected $receiver_id;
     protected $selfDelivery;
     protected $selfPickup;
+    protected $serviceCode;
     protected $items;
 
     public function setSender($sender_id)
@@ -34,6 +35,11 @@ class Shipment
     public function setItems($items)
     {
         $this->items = $items;
+    }
+
+    public function setServiceCode($value)
+    {
+        $this->serviceCode = $value;
     }
 
     public function getItems()
@@ -74,5 +80,10 @@ class Shipment
     public function getReceiver()
     {
         return $this->receiver_id;
+    }
+
+    public function getServiceCode()
+    {
+        return $this->serviceCode;
     }
 }

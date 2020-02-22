@@ -39,6 +39,10 @@ class Calculator
             'cityId'=>$shipment->getSender()
         ];
 
+        // код услуги DPD
+        if ($serviceCode = $shipment->getServiceCode()) {
+            $arData['serviceCode'] = $serviceCode;
+        }
 
         $arData['selfDelivery'] = $shipment->getSelfDelivery();
         $arData['selfPickup'] = $shipment->getPickup();

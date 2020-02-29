@@ -5,12 +5,23 @@ namespace Vdmkbu\Dpd;
 
 class Shipment
 {
+    protected $config;
     protected $sender_id;
     protected $receiver_id;
     protected $selfDelivery;
     protected $selfPickup;
     protected $serviceCode;
     protected $items;
+
+    public function __construct(Config $config)
+    {
+        $this->config = $config;
+    }
+
+    public function calculator()
+    {
+        return new Calculator($this, $this->config);
+    }
 
     public function setSender($sender_id)
     {

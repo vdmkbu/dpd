@@ -59,6 +59,31 @@ $days = $calculator->getDaysByCode("PCL");
 $name = $calculator->getNameByCode("PCL");
 ```
 
+#### статус заказа DPD
+```php
+use Vdmkbu\Dpd\Config;
+use Vdmkbu\Dpd\Services\Order\OrderTracking;
+
+
+$config = new Config([
+            'clientNumber' => 'DPD_CLIENT_NUMBER',
+            'clientKey' => 'DPD_CLIENT_KEY',
+            'server' => 'DPD_SERVER'
+        ]);
+
+// код заказа в системе DPD        
+$code = "RU028215333";
+
+$order = new OrderTracking($config);
+
+// список всех статусов заказа
+$status_list = $order->getStatusList($code);
+
+// последний статус заказа
+$last_status = $order->getLastStatus($code);        
+```
+
+
 ##### id городов в системе DPD
 например, получение из [Dadata](https://dadata.ru/api/)  
 получим значение city_kladr_id для Челябинска

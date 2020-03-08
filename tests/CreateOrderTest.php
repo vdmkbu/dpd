@@ -6,12 +6,20 @@ use PHPUnit\Framework\TestCase;
 use Vdmkbu\Dpd\Config;
 use Vdmkbu\Dpd\Services\Order\Order;
 
-class OrderTest extends TestCase
+class CreateOrderTest extends TestCase
 {
+
     /** @test */
-    public function testOrder()
+    public function testCreate()
     {
-        $config = new Config();
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+
+        $config = new Config([
+            'clientNumber' => getenv('DPD_CLIENT_NUMBER'),
+            'clientKey' => getenv('DPD_CLIENT_KEY'),
+            'server' => getenv('DPD_TEST_SERVER')
+        ]);
 
         $order = new Order($config);
 
@@ -43,11 +51,9 @@ class OrderTest extends TestCase
             ->setReceiverFio('Смирнов Игорь Николаевич')
             ->setReceiverPhone('89165555555');
 
+        $result = $order->manage()->create();
 
-            self::assertNotNull($order);
-            self::assertEquals('2020-03-10', $order->getDatePickup());
-            self::assertEquals('Иванов Сергей Петрович', $order->getSenderName());
-            self::assertEquals('Россия', $order->getSenderCountryName());
-
+        // TODO: assertNotNull и equals (?) или assertNotNull для возвращаемого типа данных
+        var_dump($result);
     }
 }

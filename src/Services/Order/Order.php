@@ -3,6 +3,8 @@
 namespace Vdmkbu\Dpd\Services\Order;
 
 
+use Vdmkbu\Dpd\Config;
+
 class Order
 {
     protected $datePickup;
@@ -32,6 +34,17 @@ class Order
     protected $receiverFio;
     protected $receiverPhone;
 
+    protected $config;
+
+    public function __construct(Config $config)
+    {
+        $this->config = $config;
+    }
+
+    public function manage()
+    {
+        return new OrderManager($this, $this->config);
+    }
     public function setDatePickup($datePickup)
     {
         $this->datePickup = $datePickup;

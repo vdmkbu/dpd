@@ -3,6 +3,7 @@
 namespace Vdmkbu\Dpd\Tests;
 
 
+use Vdmkbu\Dpd\Config;
 use Vdmkbu\Dpd\Shipment;
 use PHPUnit\Framework\TestCase;
 
@@ -11,6 +12,8 @@ class ShipmentTest extends TestCase
     /** @test */
     public function testShipment()
     {
+        $config = new Config();
+
         // Челябинск
         $from_city_id = "49265227";
 
@@ -24,7 +27,7 @@ class ShipmentTest extends TestCase
         $height = 7;
         $Qty = 8;
 
-        $shipment = new Shipment();
+        $shipment = new Shipment($config);
         $shipment->setSender($from_city_id);
         $shipment->setReceiver($to_city_id);
         $shipment->setSelfDelivery(false);
@@ -41,9 +44,13 @@ class ShipmentTest extends TestCase
 
         $shipment->setItems($items);
 
-        var_dump($shipment);
-
-        //TODO: проверить геттеры
+        self::assertNotNull($shipment);
+        self::assertEquals(3, $shipment->getItemsWeight());
+        self::assertEquals(400, $shipment->getItemsCost());
+        self::assertEquals("49265227", $shipment->getSender());
+        self::assertEquals("195733465", $shipment->getReceiver());
+        self::assertTrue($shipment->getPickup());
+        self::assertFalse($shipment->getSelfDelivery());
 
     }
 }

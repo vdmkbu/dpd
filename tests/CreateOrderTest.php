@@ -4,7 +4,7 @@ namespace Vdmkbu\Dpd\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Vdmkbu\Dpd\Config;
-use Vdmkbu\Dpd\Services\Order\Order;
+use Vdmkbu\Dpd\Order;
 
 class CreateOrderTest extends TestCase
 {

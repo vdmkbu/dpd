@@ -5,6 +5,7 @@ namespace Vdmkbu\Dpd\Services\Order;
 
 use Vdmkbu\Dpd\API\ClientFactory;
 use Vdmkbu\Dpd\Config;
+use Vdmkbu\Dpd\Order;
 use Vdmkbu\Dpd\Types\OrderStatus;
 
 class OrderManager

@@ -3,7 +3,6 @@
 namespace Vdmkbu\Dpd\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Vdmkbu\Dpd\Calculator;
 use Vdmkbu\Dpd\Config;
 use Vdmkbu\Dpd\Shipment;
 

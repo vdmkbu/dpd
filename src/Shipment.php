@@ -3,6 +3,8 @@
 namespace Vdmkbu\Dpd;
 
 
+use Vdmkbu\Dpd\Services\Calculator;
+
 class Shipment
 {
     protected $config;

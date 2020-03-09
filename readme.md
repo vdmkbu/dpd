@@ -58,6 +58,53 @@ $days = $calculator->getDaysByCode("PCL");
 // полное название тарифа PCL
 $name = $calculator->getNameByCode("PCL");
 ```
+#### создание заказа DPD
+```php
+use Vdmkbu\Dpd\Config;
+use Vdmkbu\Dpd\Order;
+
+$config = new Config([
+            'clientNumber' => 'DPD_CLIENT_NUMBER',
+            'clientKey' => 'DPD_CLIENT_KEY',
+            'server' => 'DPD_SERVER'
+        ]);
+$order = new Order($config);
+
+        $order
+            ->setDatePickup('2020-03-10')
+            ->setSenderName('Иванов Сергей Петрович')
+            ->setSenderCountryName('Россия')
+            ->setSenderCity('Люберцы')
+            ->setSenderStreet('Авиаторов')
+            ->setSenderStreetAbbr('ул')
+            ->setSenderHouse('1')
+            ->setSenderFio('Смирнов Игорь Николаевич')
+            ->setSenderPhone('89165555555')
+            ->setPickupTimePeriod('9-18')
+            ->setPayer('1021004119')
+            ->setOrderNumberInternal(time())
+            ->setServiceCode('CUR')
+            ->setServiceVariant('ДД')
+            ->setCargoNumPack(5)
+            ->setCargoWeight(5)
+            ->setCargoRegistered(false)
+            ->setCargoCategory('Одежда')
+            ->setReceiverName('Иванов Сергей Петрович')
+            ->setReceiverCountryName('Россия')
+            ->setReceiverCity('Люберцы')
+            ->setReceiverStreet('Авиаторов')
+            ->setReceiverStreetAbbr('ул')
+            ->setReceiverHouse('2')
+            ->setReceiverFio('Смирнов Игорь Николаевич')
+            ->setReceiverPhone('89165555555');
+
+        $order_status = $order->manage()->create();
+        
+        $order_id = $order_status->getOrderNum();
+        $status = $order_status->getStatus();
+        $internal_id = $order_status->getOrderNumInternal();
+        
+```
 
 #### статус заказа DPD
 ```php

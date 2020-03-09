@@ -3,7 +3,7 @@
 namespace Vdmkbu\Dpd\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Vdmkbu\Dpd\Cost;
+use Vdmkbu\Dpd\Types\Cost;
 
 class CostTest extends TestCase
 {

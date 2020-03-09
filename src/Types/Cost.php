@@ -1,6 +1,6 @@
 <?php
 
-namespace Vdmkbu\Dpd;
+namespace Vdmkbu\Dpd\Types;
 
 
 class Cost

@@ -1,9 +1,9 @@
 <?php
 
-namespace Vdmkbu\Dpd\Services\Order;
+namespace Vdmkbu\Dpd;
 
 
-use Vdmkbu\Dpd\Config;
+use Vdmkbu\Dpd\Services\Order\OrderManager;
 
 class Order
 {

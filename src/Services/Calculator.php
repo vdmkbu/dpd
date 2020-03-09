@@ -1,9 +1,12 @@
 <?php
 
-namespace Vdmkbu\Dpd;
+namespace Vdmkbu\Dpd\Services;
 
 
 use Vdmkbu\Dpd\API\ClientFactory;
+use Vdmkbu\Dpd\Config;
+use Vdmkbu\Dpd\Shipment;
+use Vdmkbu\Dpd\Types\Cost;
 
 class Calculator
 {

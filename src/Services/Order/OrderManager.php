@@ -5,6 +5,7 @@ namespace Vdmkbu\Dpd\Services\Order;
 
 use Vdmkbu\Dpd\API\ClientFactory;
 use Vdmkbu\Dpd\Config;
+use Vdmkbu\Dpd\Types\OrderStatus;
 
 class OrderManager
 {
@@ -56,8 +57,9 @@ class OrderManager
             ]
         ];
 
-        // TODO: возвращаемый тип и методы getOrderNum, getStatus, getOrderNumInternal
-        return $this->client->execute('createOrder', $request, 'orders');
+        $response = $this->client->execute('createOrder', $request, 'orders');
+        return new OrderStatus($response);
+
     }
 
     public function cancel()

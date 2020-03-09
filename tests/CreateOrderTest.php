@@ -51,9 +51,12 @@ class CreateOrderTest extends TestCase
             ->setReceiverFio('Смирнов Игорь Николаевич')
             ->setReceiverPhone('89165555555');
 
-        $result = $order->manage()->create();
+        $order_status = $order->manage()->create();
 
-        // TODO: assertNotNull и equals (?) или assertNotNull для возвращаемого типа данных
-        var_dump($result);
+
+        self::assertNotNull($order_status);
+        self::assertNotNull($order_status->getOrderNum());
+        self::assertNotNull($order_status->getStatus());
+        self::assertNotNull($order_status->getOrderNumInternal());
     }
 }
